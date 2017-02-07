@@ -1,0 +1,13 @@
+create table AppData(ID int NOT NULL AUTO_INCREMENT, State varchar(100), City varchar(100), Location varchar(200), PinCode varchar(8), Bank varchar(40), Restaurant varchar(50), Hospital varchar(60), ShoppingMall varchar(60), School varchar(30), PRIMARY KEY(ID));
+
+$ sudo chmod 777 -R /var/lib/mysql
+
+$ sudo cp /home/hduser/HadoopAppdata.csv  /var/lib/mysql/<db_name>
+
+#To load data in table from .csv file from local path -
+
+Load data local infile 'HadoopAppdata.csv' into table AppData fields terminated by ',' enclosed by '"' lines terminated by '\n' ignore 1 lines (State, City, Location, PinCode, Bank, Restaurant, Hospital, ShoppingMall, School);
+
+After importing data, verify that the data is available in a relational DB
+
+select * from appdata;
